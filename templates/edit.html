@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.rtl.min.css"
+      integrity="sha384-PRrgQVJ8NNHGieOA1grGdCTIt4h21CzJs6SnWH4YMQ6G5F5+IEzOHz67L4SQaF0o"
+      crossorigin="anonymous"
+    />
+    <title>CRUD Mini Project update</title>
+  </head>
+
+  <body>
+    <nav>
+      <div class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-md">
+          <a class="navbar-brand" href="#"> CRUD MINI PROJECT</a>
+        </div>
+      </div>
+    </nav>
+    <div class="container mt-3">
+      <div class="row">
+        <div class="col-md-4">
+          <h4 class="text-white bg-info text-center p-1">
+            Update Student Data
+          </h4>
+          <br />
+
+          <form action="/update/{{d.id}}" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter the Student Name: "
+                name="name"
+                value="{{d.name}}"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control mt-3"
+                placeholder="Enter the Student Email: "
+                name="email"
+                value="{{d.email}}"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="number"
+                class="form-control mt-3"
+                placeholder="Enter the Student Age: "
+                name="age"
+                value="{{d.age}}"
+                required
+              />
+              <div class="form-group mt-3">
+                <!-- <label for="gender">Gender</label> -->
+                <select id="gender" class="form-control" name="gender" required>
+                  <option selected>{{d.gender}}</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="transgender">Transgender</option>
+                </select>
+              </div>
+            </div>
+            <div class="d-grid gap-2 mt-3">
+              <button class="btn btn-success" type="submit">update</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
